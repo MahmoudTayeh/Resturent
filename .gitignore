@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+db.sqlite3

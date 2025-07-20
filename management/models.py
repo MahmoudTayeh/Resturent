@@ -22,7 +22,7 @@ class MealOption(models.Model):
 
 class Cart(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return f"Cart of {self.user.name}"
 
@@ -31,7 +31,7 @@ class CartItem(models.Model):
     meal = models.ForeignKey(Meal,on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     option = models.ForeignKey(MealOption, on_delete=models.SET_NULL, null=True, blank=True)
-    
+
     def __str__(self):
         return f"{self.quantity} x {self.meal.name} "
 
@@ -46,8 +46,7 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=8, decimal_places=2)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES,default='preparing')
-    unique_order_code = models.CharField(max_length=12, unique=True)
-    delivery_phone = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='deliveries')
+    contact_phone = models.CharField(max_length=100)
     def __str__(self):
         return f"Order {self.id} by {self.user.name}"
 

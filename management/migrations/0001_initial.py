@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('total_price', models.DecimalField(decimal_places=2, max_digits=8)),
                 ('status', models.CharField(choices=[('preparing', 'Preparing'), ('ready', 'Ready'), ('on_the_way', 'On_the_way'), ('delivered', 'Delivered')], default='preparing', max_length=100)),
                 ('unique_order_code', models.CharField(max_length=12, unique=True)),
-                ('delivery_phone', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='deliveries', to=settings.AUTH_USER_MODEL)),
+                ('contact_phone', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='deliveries', to=settings.AUTH_USER_MODEL)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),

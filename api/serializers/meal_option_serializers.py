@@ -7,6 +7,7 @@ class MealOptionCreateUpdateSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'price_differences']
         
 class MealOptionDetailSerializer(serializers.ModelSerializer):
+    meal = serializers.CharField(source='meal.name', read_only=True)
     class Meta:
         model = MealOption
         fields = ['id', 'meal', 'title', 'price_differences']

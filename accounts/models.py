@@ -9,7 +9,7 @@ class CustomUserManager(BaseUserManager):
         if not name:
             raise ValueError('Name is required')
         extra_fields.setdefault('is_active', True)
-        user = self.model(phone_number=phone_number, **extra_fields)
+        user = self.model(phone_number=phone_number,name=name,**extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user

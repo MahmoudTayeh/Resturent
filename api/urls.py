@@ -9,7 +9,7 @@ router = DefaultRouter()
 router.register(r'meals', MealViewSet,basename='meal')
 router.register(r'orders',OrderViewSet,basename='order')
 router.register(r'meal-options', MealOptionViewSet,basename='meal-option')
-router.register(r'delivery-personnel', DeliveryPersonViewSet)
+router.register(r'delivery-personnel', DeliveryPersonViewSet,basename='delivery')
 router.register(r'users', UserManagementViewSet,basename='user')
 urlpatterns = router.urls + [
                path('auth/', obtain_auth_token),

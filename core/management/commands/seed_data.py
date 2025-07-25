@@ -7,14 +7,14 @@ class Command(BaseCommand):
     
     def handle(self, *args, **kwargs):
         
-        #MealOption.objects.all().delete()
-        #Meal.objects.all().delete()
-        #CustomUser.objects.all().delete()
+        MealOption.objects.all().delete()
+        Meal.objects.all().delete()
+        CustomUser.objects.all().delete()
         Order.objects.all().delete()
         OrderItem.objects.all().delete()
     
         # Create Meals
-        '''pizza = Meal.objects.create(name='Pizza', description='Cheesy pizza with toppings', price=30)
+        pizza = Meal.objects.create(name='Pizza', description='Cheesy pizza with toppings', price=30)
         burger = Meal.objects.create(name='Burger', description='Juicy beef burger', price=25)
         pasta = Meal.objects.create(name='Pasta', description='Creamy white sauce pasta', price=28)
 
@@ -55,7 +55,7 @@ class Command(BaseCommand):
             phone_number='0595555555',
             address='Khan Younis',
             password='userpass'
-        )'''
+        )
         admin_user = CustomUser.objects.get(phone_number='0591234567')
         regular_user = CustomUser.objects.get(phone_number='0595555555')
         pizza = Meal.objects.get(name='Pizza')

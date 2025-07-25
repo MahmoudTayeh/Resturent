@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Palestine Resturent</title>
 
     <!-- Custom fonts for this template-->
     <link href='{% static "dashboard_owner/vendor/fontawesome-free/css/all.min.css" %}' rel="stylesheet" type="text/css">
@@ -363,7 +363,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Palestine Resturent</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -549,31 +549,32 @@
 
                             <!-- Buttons  -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Quick Actions</h6>
-                                </div>
-                                <div class="card-body">
-                                        <a href="#" class="btn btn-primary btn-lg btn-icon-split">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Quick Actions</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- تعديل: إضافة معلمة `?table=...` لكل رابط -->
+                                        <a href="{% url 'tables' %}?table=orders" class="btn btn-primary btn-lg btn-icon-split">
                                             <span class="text">View All Orders</span>
                                         </a>
                                         <div class="my-2"></div>
-                                        <!-- buttons -->
-                                         <a href="#" class="btn btn-primary btn-lg btn-icon-split">
-                                            <span class="text">Manage Meals </span>
+                                        
+                                        <a href="{% url 'tables' %}?table=meals" class="btn btn-primary btn-lg btn-icon-split">
+                                            <span class="text">Manage Meals</span>
                                         </a>
                                         <div class="my-2"></div>
-                                        <a href="#" class="btn btn-primary btn-lg btn-icon-split">
-                                            <span class="text">Manage Meal Option</span>
+
+                                        <a href="{% url 'tables' %}?table=meal-options" class="btn btn-primary btn-lg btn-icon-split">
+                                            <span class="text">Manage Meal Options</span>
                                         </a>
                                         <div class="my-2"></div>
-                                        <a href="#" class="btn btn-primary btn-lg btn-icon-split">
-                                            <span class="text">Manage delivery</span>
+
+                                        <a href="{% url 'tables' %}?table=delivery" class="btn btn-primary btn-lg btn-icon-split">
+                                            <span class="text">Manage Delivery Personnel</span>
                                         </a>
                                         <div class="my-2"></div>
-                                        <a href="#" class="btn btn-primary btn-lg btn-icon-split">
-                                            <span class="text">Show Statistics</span>
-                                        </a>
-                                        <div class="my-2"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -669,7 +670,7 @@
         function updateDashboaredCardes(stats){
             document.getElementById('today-orders-count').textContent=stats.today_orders;
             document.getElementById('today-revenue-amount').textContent=`$${parseFloat(stats.today_revenue).toFixed(2)}`;
-            document.getElementById('Today-vs-monthly-avg').textContent=`$${parseFloat(stats.TodayVsMonthlyAvg)} %`;
+            document.getElementById('Today-vs-monthly-avg').textContent=`${parseFloat(stats.TodayVsMonthlyAvg)} %`;
             document.getElementById('preparing-order-count').textContent=`${parseFloat(stats.preparing_order)}`;
         }
         function updatePieChart(topMeals) {
@@ -830,6 +831,10 @@
         }
     });
     }
+    const element = document.getElementById("view-all-orders");
+    element.addEventListener("click" ,function(){
+        console.log("Hello world!");
+    });
     </script>
 
 </body>

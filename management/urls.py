@@ -9,5 +9,5 @@ urlpatterns = [
     path('dashboard_owner/page_404/', views.page_404 , name='page_404'),
     path('dashboard_owner/blank_page/', views.blank_page , name='blank_page'),
     path('dashboard_owner/charts/', views.charts , name='charts'),
-    path('dashboard_owner/tables/', views.tables , name='tables'),
+    path('tables/', views.tables , name='tables'),
 ]
